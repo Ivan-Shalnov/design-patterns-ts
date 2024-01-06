@@ -18,6 +18,7 @@ export default class Document {
   public clone(): Document {
     const document = new Document(this.text, this.author, this.id);
     document.comments = this.comments.map(comment => comment.clone());
+    document.createdAt = this.createdAt;
     return document;
   }
 }

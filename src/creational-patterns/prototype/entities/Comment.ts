@@ -8,6 +8,8 @@ export default class Comment {
   ) {}
 
   public clone(): Comment {
-    return new Comment(this.text, this.author, this.id);
+    const cloned = new Comment(this.id, this.author, this.text);
+    cloned.createdAt = this.createdAt;
+    return cloned;
   }
 }

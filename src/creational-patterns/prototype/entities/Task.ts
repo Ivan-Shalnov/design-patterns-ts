@@ -29,6 +29,7 @@ export default class Task {
       this.deadline,
     );
     task.comments = this.comments.map(comment => comment.clone());
+    task.createdAt = this.createdAt;
     return task;
   }
 }
