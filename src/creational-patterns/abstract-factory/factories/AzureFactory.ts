@@ -1,4 +1,4 @@
-import ICloudServiceFactory from '../interfaces/ICloudServiceFactory';
+import CloudServiceFactory from './CloudServiceFactory';
 import IDatabase from '../interfaces/IDatabase';
 import ILoadBalancer from '../interfaces/ILoadBalancer';
 import IStorage from '../interfaces/IStorage';
@@ -8,7 +8,7 @@ import AzureLoadBalancer from '../products/AzureLoadBalancer';
 import AzureStorage from '../products/AzureStorage';
 import AzureVirtualMachine from '../products/AzureVirtualMachine';
 
-export default class AzureFactory implements ICloudServiceFactory {
+export default class AzureFactory extends CloudServiceFactory {
   createStorage(): IStorage {
     console.info('Creating Azure storage...');
     return new AzureStorage('123', 'Azure Storage', 'running', 1000);

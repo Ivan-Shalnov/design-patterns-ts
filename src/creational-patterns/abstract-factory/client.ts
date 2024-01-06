@@ -1,12 +1,12 @@
 import AWSFactory from './factories/AWSFactory';
 import AzureFactory from './factories/AzureFactory';
-import ICloudServiceFactory from './interfaces/ICloudServiceFactory';
+import CloudServiceFactory from './factories/CloudServiceFactory';
 import IDatabase from './interfaces/IDatabase';
 import ILoadBalancer from './interfaces/ILoadBalancer';
 import IVirtualMachine from './interfaces/IVirtualMachine';
 
 class CloudServiceManager {
-  private cloudService: ICloudServiceFactory;
+  private cloudService: CloudServiceFactory;
 
   public database?: IDatabase;
 
@@ -14,7 +14,7 @@ class CloudServiceManager {
 
   public loadBalancer?: ILoadBalancer;
 
-  constructor(cloudServiceFactory: ICloudServiceFactory) {
+  constructor(cloudServiceFactory: CloudServiceFactory) {
     this.cloudService = cloudServiceFactory;
   }
 

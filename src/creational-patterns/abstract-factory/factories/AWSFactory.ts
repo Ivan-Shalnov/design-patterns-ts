@@ -1,4 +1,4 @@
-import ICloudServiceFactory from '../interfaces/ICloudServiceFactory';
+import CloudServiceFactory from './CloudServiceFactory';
 import IDatabase from '../interfaces/IDatabase';
 import ILoadBalancer from '../interfaces/ILoadBalancer';
 import IStorage from '../interfaces/IStorage';
@@ -8,7 +8,7 @@ import AWSLoadBalancer from '../products/AWSLoadBalancer';
 import AWSRDS from '../products/AWSRDS';
 import AWSStorage from '../products/AWSStorage';
 
-export default class AWSFactory implements ICloudServiceFactory {
+export default class AWSFactory extends CloudServiceFactory {
   createStorage(): IStorage {
     console.info('Creating AWS storage...');
     return new AWSStorage('123', 'AWS Storage', 1000);
