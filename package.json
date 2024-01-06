@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.3.3"
+  },
+  "license": "MIT",
+  "scripts": {
+    "codestyle:check": "tslint -c tslint.json -p tsconfig.json",
+    "codestyle:fix": "tslint -c tslint.json -p tsconfig.json --fix"
+  },
+  "dependencies": {
+    "nanoid": "^5.0.4"
+  }
+}
