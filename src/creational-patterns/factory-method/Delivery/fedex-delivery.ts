@@ -1,8 +1,8 @@
-import { IPackage } from '../Package/IPackage';
-import { FedExPackage } from '../Package/fedex-package';
-import { Delivery, ICreatePackageParams } from './delivery';
+import IPackage from '../Package/IPackage';
+import FedExPackage from '../Package/fedex-package';
+import Delivery, { ICreatePackageParams } from './delivery';
 
-export class FedexDelivery extends Delivery {
+export default class FedexDelivery extends Delivery {
   splitToPackages(): ICreatePackageParams[] {
     //  Create packages with max weight of 20kg
     const maxWeight = 25;
@@ -37,6 +37,7 @@ export class FedexDelivery extends Delivery {
     });
     return this.packages;
   }
+
   createPackage({
     width,
     height,

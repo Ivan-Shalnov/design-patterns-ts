@@ -1,6 +1,6 @@
-import { Delivery } from './Delivery/delivery';
-import { DHLDelivery } from './Delivery/dhl-delivery';
-import { FedexDelivery } from './Delivery/fedex-delivery';
+import Delivery from './Delivery/delivery';
+import DHLDelivery from './Delivery/dhl-delivery';
+import FedexDelivery from './Delivery/fedex-delivery';
 
 const orderItems = [
   {
@@ -63,8 +63,15 @@ const orderItems = [
 
 class Order {
   deliveryServiceProvider: Delivery;
+
   constructor(
-    public items: any[],
+    public items: {
+      name: string;
+      width: number;
+      height: number;
+      depth: number;
+      weight: number;
+    }[],
     deliveryServiceProvider: 'fedex' | 'dhl',
     public address: string,
   ) {
@@ -81,6 +88,7 @@ class Order {
         throw new Error('Invalid delivery service provider');
     }
   }
+
   processOrder() {
     this.deliveryServiceProvider.processDelivery();
   }

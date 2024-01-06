@@ -1,8 +1,8 @@
-import { IPackage } from '../Package/IPackage';
-import { DHLPackage } from '../Package/dhl-package';
-import { Delivery, ICreatePackageParams } from './delivery';
+import IPackage from '../Package/IPackage';
+import DHLPackage from '../Package/dhl-package';
+import Delivery, { ICreatePackageParams } from './delivery';
 
-export class DHLDelivery extends Delivery {
+export default class DHLDelivery extends Delivery {
   splitToPackages(): ICreatePackageParams[] {
     const packages: ICreatePackageParams[] = [];
     //   Create packages with max weight of 10kg
@@ -38,6 +38,7 @@ export class DHLDelivery extends Delivery {
     });
     return packages;
   }
+
   createPackage({
     width,
     height,

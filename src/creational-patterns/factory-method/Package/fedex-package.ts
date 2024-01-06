@@ -1,13 +1,22 @@
-import { IPackage } from './IPackage';
-export class FedExPackage implements IPackage {
+import IPackage from './IPackage';
+
+export default class FedExPackage implements IPackage {
   trackingNumber: string | undefined;
+
   width: number;
+
   height: number;
+
   depth: number;
+
   address: string;
+
   weight: number;
+
   volumeWeight: number;
+
   contents: string[];
+
   constructor({
     width,
     height,
@@ -31,6 +40,7 @@ export class FedExPackage implements IPackage {
     this.volumeWeight = Math.max((width * height * depth) / 3000, weight);
     this.contents = contents;
   }
+
   printLabel(): void {
     const contents = this.contents.join(', ');
     console.log('FedEx package label:');
@@ -43,8 +53,9 @@ export class FedExPackage implements IPackage {
       Contents: contents,
     });
   }
+
   sendToServiceProvider(): void {
-    this.trackingNumber = 'FEDEX-' + Math.random().toString(36).substr(2, 9);
+    this.trackingNumber = `FEDEX-${Math.random().toString(36).substr(2, 9)}`;
     console.log('FedEx package sent');
     console.table({
       DeliveryBy: 'FedEx',

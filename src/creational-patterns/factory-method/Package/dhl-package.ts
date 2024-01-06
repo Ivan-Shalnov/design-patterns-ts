@@ -1,13 +1,22 @@
-import { IPackage } from './IPackage';
-export class DHLPackage implements IPackage {
+import IPackage from './IPackage';
+
+export default class DHLPackage implements IPackage {
   trackingNumber: string | undefined;
+
   width: number;
+
   height: number;
+
   depth: number;
+
   address: string;
+
   weight: number;
+
   volumeWeight: number;
+
   contents: string[];
+
   constructor({
     width,
     height,
@@ -31,6 +40,7 @@ export class DHLPackage implements IPackage {
     this.volumeWeight = Math.max((width * height * depth) / 3000, weight);
     this.contents = contents;
   }
+
   printLabel(): void {
     const contents = this.contents.join(', ');
     console.log('DHL package label:');
@@ -43,8 +53,9 @@ export class DHLPackage implements IPackage {
       Contents: contents,
     });
   }
+
   sendToServiceProvider(): void {
-    this.trackingNumber = 'DHL-' + Math.random().toString(36).substr(2, 9);
+    this.trackingNumber = `DHL-${Math.random().toString(36).substr(2, 9)}`;
     console.log('DHL package sent');
     console.table({
       DeliveryBy: 'DHL',
