@@ -12,7 +12,7 @@ export default class PaymentProcessor {
   }
 
   public getPaymentStatus(paymentId: string): 'success' | 'failed' | 'pending' {
-    const payment = this.payments.find(payment => payment.id === paymentId);
+    const payment = this.payments.find(el => el.id === paymentId);
     if (payment) {
       return payment.status;
     }
