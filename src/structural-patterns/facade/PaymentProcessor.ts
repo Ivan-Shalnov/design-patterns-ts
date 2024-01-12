@@ -27,7 +27,7 @@ export default class PaymentProcessor {
     paymentId: string,
     status: 'success' | 'failed' | 'pending',
   ): void {
-    const payment = this.payments.find(payment => payment.id === paymentId);
+    const payment = this.payments.find(el => el.id === paymentId);
     if (payment) {
       payment.status = status;
     }
